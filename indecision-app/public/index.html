@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Indecision App</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@15/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+  <script src="/scripts/app.js"></script>
+</body>
+
+</html>
+<!--
+Example 3. TO USE BABEL CLI
+#Files - 
+        1. public/index.html_Ex3
+        2. public/scripts/app.js_Ex3
+step1.
+----
+# From the command terminal execute install babel cli globally
+# yarn global add babel-cli OR #npm install -g babel-cli@6.24.1
+# babel-cli --help  
+verify to check babel is installed.
+
+step2:
+----
+sets up our project to use Yarn.
+cd to react-course-project/indecision-app/  folder
+
+
+#yarn init
+Accept the defaults this time as below;
+
+shailen indecision-app $ yarn init
+yarn init v1.2.1
+question name (indecision-app): 
+question version (1.0.0): 
+question description: 
+question entry point (index.js): 
+question repository url: 
+question author: Shailendra Kumar@HelixTech
+question license (MIT): 
+question private: 
+success Saved package.json
+✨  Done in 108.34s
+
+Step3:
+----
+Install presets
+
+Go to http://babaeljs.io    >> Go to Docs >> plugin >> Preset  
+   babel-preset-env replaces es2015, es2016, es2017, latest, react, flow
+
+Run the command from react-course-project/indecision-app/ directory
+
+#yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2
+
+Go to the file package.json file 
+observe the local dependencies in the package.json file
+
+"dependencies": {
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1"
+  }
+these dependencies inturn have other dependencies installed in the node_modules folder.
+
+step4.
+----
+
+make a new folder /src
+and create the file app.js to transpile to ES5 browser understandable code.
+
+#babel src/app.js --out-file=public/scripts/app.js --presets=env,react
+
+#babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+
+step 5:
+----
+
+.Delete the node_modules folder
+.Now if you close and run this #babel src/app.js --out-file=public/scripts/app.js --presets=env,react 
+will throw error
+# yarn install
+this will install all dependecies and restore the node_modules folder
+
+-->
+
+</html>

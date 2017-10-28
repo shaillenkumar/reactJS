@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Indecision App</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@15/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+
+<!--
+Example 2.
+#Files - 
+        1. public/index.html_Ex2
+        2. public/scripts/app.js_Ex2
+# In the index.html import the script src
+# react and reactdom
+
+# Check for the React and ReactDOM  using Developer Tool console .
+# run the live server from the folder - react-course-project/indecision-app/
+# live-server public
+
+
+
+
+
+-->
+
+</html>
