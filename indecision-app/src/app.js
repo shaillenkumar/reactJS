@@ -1,19 +1,39 @@
 console.log('App.js is running!');
 
-// JSX - JavaScript XML
-var template = (
-    <div>
-        <h1>Indecision App has changed!</h1>
-        <p>Some Info</p>
-        <ol>
-            <li>Class one</li>
-            <li>Class two </li>
-        </ol>
-      </div>  
-        );
+// JSX - JavaScript XML - manual binding
+
+// the attribute class is a reserved keyword hence we use className. 
+// Refer React DOM elements https://reactjs.org/docs/dom-elements.html to get a run down of all supported HTML attributes.
+// See the Reset method handled in line
+
+let count=0;
+const my_id='myidhere';
+const addOne = () => {
+    count++;
+    console.log("Add One",count);
+    renderCountApp();
+}
+
+const minusOne = () => {
+    count--;
+    console.log("Minus One",count);
+    renderCountApp();
+}
+
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+const renderCountApp = () => {
+    var template = (
+        <div>
+           <h1>Count :  {count}</h1> 
+           <button id={my_id} className='button' onClick={addOne}>++</button>
+           <button id={my_id} className='button' onClick={minusOne}>--</button> 
+        </div>  
+     );
 
-// Added template = ( ); html elements within paranthesis () ; to make it more readable its optional.
-// JSX can have one root element only . Cannot be like <h1>Indecision App has changed!</h1><p>Some Info</p>
+     ReactDOM.render(template, appRoot);
+}
+
+renderCountApp();
+
+

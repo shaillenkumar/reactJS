@@ -1,0 +1,51 @@
+console.log('App.js is running!');
+
+// JSX - JavaScript XML
+
+//lets create a user object and see how we can refer the user object in JSX expression
+// lets see conditional rendering in JSX
+var app ={
+    title:'React Demo',
+    subtitle:'Put your life in the hands of your computer'
+};
+var user ={
+    name:'Mary Hail',
+    age:26,
+    location:'New York'
+};
+
+function getLocation(userLoc){
+    if(userLoc){
+        return userLoc + '!';
+    }else{
+        return 'unknown';
+    }
+}
+// In getLocation1() function we will return Jsx expression on True and on false will return undefined
+// Note on false the undefined condion will return empty node in the browser dom
+function getLocation1(userLoc){
+    if(userLoc){
+        return <p> Location: {userLoc} </p>;
+    }else{
+        return undefined;
+    }
+}
+// If usernmae exists we will show username else anonmyous
+// <p>User : {user.name.toUpperCase()}</p>
+// <p>Age : {user.age}</p>
+
+var template = (
+    <div>
+        <h1>{app.title}</h1>
+        <p><u>{app.subtitle}</u></p>
+        <p>User : {user.name ? user.name.toUpperCase() : 'Anonymous'}</p>
+        
+        {user.age >= 18 && <p>Age : {user.age}</p>}
+        {getLocation1(user.location)}
+      </div>  
+        );
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(template, appRoot);
+
+// {can have expressions like above and string operation }

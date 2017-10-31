@@ -1,0 +1,31 @@
+console.log('App.js is running!');
+
+// JSX - JavaScript XML - Event and Attributes
+
+// the attribute class is a reserved keyword hence we use className. 
+// Refer React DOM elements https://reactjs.org/docs/dom-elements.html to get a run down of all supported HTML attributes.
+// See the Reset method handled in line
+// See the Reset method handled in line
+let count=0;
+const my_id='myidhere';
+const addOne = () => {
+    console.log("Add One");
+}
+const minusOne = () => {
+    console.log("Minus One");
+}
+var template = (
+    <div>
+       <h1>Count :  {count}</h1> 
+       <button id={my_id} className='button' onClick={addOne}>++</button>
+       <button id={my_id} className='button' onClick={minusOne}>--</button>
+       <button id={my_id} className='button' onClick={()=>{
+            console.log('Reset');
+       }}>Reset</button>
+    </div>  
+        );
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(template, appRoot);
+
+// {can have expressions like above and string operation }

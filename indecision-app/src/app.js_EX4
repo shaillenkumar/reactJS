@@ -1,0 +1,33 @@
+console.log('App.js is running!');
+
+// JSX - JavaScript XML
+let userName='JohnDoe';
+let userAge=20;
+let userLocation='Bangalore';
+
+//lets create a user object and see how we can refer the user object in JSX expression
+var app ={
+    title:'React Demo',
+    subtitle:'This is subtitle'
+};
+var user ={
+    name:'Mary Hill',
+    age:26,
+    location:'New York'
+};
+
+var template = (
+    <div>
+        <h1>{app.title}</h1>
+        <p><u>{app.subtitle}</u></p>
+        
+        <p>User : {userName.toUpperCase()+ '!'}</p>
+        <p>Age : {userAge}</p>
+        <p>Location : {user.location}</p>
+      </div>  
+        );
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(template, appRoot);
+
+// {can have expressions like above and string operation }

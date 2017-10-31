@@ -1,0 +1,19 @@
+console.log('App.js is running!');
+
+// JSX - JavaScript XML
+var template = (
+    <div>
+        <h1>Indecision App has changed!</h1>
+        <p>Some Info</p>
+        <ol>
+            <li>Class one</li>
+            <li>Class two </li>
+        </ol>
+      </div>  
+        );
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(template, appRoot);
+
+// Added template = ( ); html elements within paranthesis () ; to make it more readable its optional.
+// JSX can have one root element only . Cannot be like <h1>Indecision App has changed!</h1><p>Some Info</p>

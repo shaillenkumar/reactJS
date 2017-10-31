@@ -15,11 +15,10 @@
 
 </html>
 <!--
-Example 3. TO USE jsx expression in {}
+Example 3. TO USE BABEL CLI
 #Files - 
-        1. public/index.html_Ex4
-        2. public/scripts/app.js_Ex4
-        
+        1. public/index.html_Ex3
+        2. public/scripts/app.js_Ex3
 step1.
 ----
 # From the command terminal execute install babel cli globally
