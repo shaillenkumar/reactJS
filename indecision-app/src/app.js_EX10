@@ -31,12 +31,9 @@ class Header extends React.Component{
     }
 }
 class Action extends React.Component{
-    onPick(){
-        console.log("onPick called!!");
-    }
     render(){
         return( <div>
-            <button onClick={this.onPick}>What should I do ?</button>
+            <button>What should I do ?</button>
         </div>);
     }
 }

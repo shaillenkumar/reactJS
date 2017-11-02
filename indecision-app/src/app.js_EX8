@@ -1,0 +1,81 @@
+console.log('App.js is running!');
+
+// JSX - JavaScript XML
+
+
+// lets create a user object and see how we can refer the user object in JSX expression
+// Refer https://reactjs.org/docs/events.html for the React DOM Events - check for the Supported Events - like the focus events, mouse events, form events
+
+var app = { 
+    title:'Indecision App',
+    subtitle: 'Put Your Life in the Hands of the Computer',
+    options: ['One', 'Two']
+};
+
+const onFormSubmit= (e) => {
+    console.log('Form Submitted');
+    e.preventDefault();
+    const option = e.target.elements.option.value;
+    if (option) {
+        app.options.push(option);
+        e.target.elements.option.value = '';
+    }
+    console.log('Form Submitted');
+    render();
+};
+
+const onRemoveAll = () =>{
+    console.log('on remove all');
+    app.options = [ ] ;
+    render();
+}
+const numbers = [55, 10 , 30];
+
+const onMakeDecision = () => {
+    
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    console.log('onMake Decision called',randomNum);
+    const option = app.options[randomNum];
+    alert(option);
+}
+
+
+var appRoot = document.getElementById('app');
+
+const render = () => {
+    var template = (
+        <div>
+            <h1>{app.title}</h1>
+            {app.subtitle && <p><u>{app.subtitle}</u></p>}
+            <p>{ app.options.length >0 ? 'Here are your options' : 'There are no options' }</p>
+            <p>{app.options.length}</p>
+            <button onClick={onRemoveAll}>Remove All</button>
+            <button onClick={onMakeDecision} disabled={app.options.length === 0}>What should I do? </button>
+            { 
+                /*
+                numbers.map((number) => {
+                    return <p key={number}>Number: {number}</p>
+                })
+                */
+            }
+
+            <ol>
+                { /*
+                    app.options.map((option) => {
+                        return <li key={option}>{option}</li>
+                    })
+                    // we have eliminated return below
+                    */
+                    app.options.map((option) =>  <li key={option}>{option}</li>)
+                }
+            </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option"/>
+                <button>Add Options</button>
+            </form>
+        </div>  
+    );
+    ReactDOM.render(template, appRoot);
+}
+
+render();

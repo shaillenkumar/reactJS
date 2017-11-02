@@ -1,0 +1,26 @@
+console.log('App.js is running!');
+
+// JSX - JavaScript XML
+// Toggle Application
+
+
+let visibility = false;
+var appRoot = document.getElementById('app');
+const toggleVisibility = () => {
+    visibility = !visibility; 
+    render();
+}
+const render = () => {
+    const template = (
+        <div>
+            <h1>Visibility Toggle</h1>
+            <button onClick={toggleVisibility}> {visibility ? 'Hide Details' : 'Show Details'}</button>
+            {visibility && (
+                <div> <p> Hey! See are some details you can see now! </p> </div>
+            )}
+        </div>
+    );
+    ReactDOM.render(template, appRoot);
+}
+
+render();
