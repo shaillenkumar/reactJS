@@ -1,0 +1,125 @@
+    console.log('App.js is running!');
+
+// React Events and METHOD BINDING
+
+// the class name has to start from Capital and all React Component have to have render()
+// Nesting inside Indecision component
+
+class IndecisionApp extends React.Component{
+    render(){
+
+       const title='Indecision App';  //props
+       const subtitle = 'Put your life in the hands of computer';
+       const options = ['one','two','three','four'];
+       return( <div>
+            <Header title={title} subtitle={subtitle}/>
+            <Action />
+            <Options options={options} />
+            <AddOption />
+        </div> );
+    }
+}
+
+
+class Header extends React.Component{
+    render(){
+        console.log('title : ',this.props.title);
+        return( <div>
+            <h1>{this.props.title}</h1>
+            <h2>{this.props.subtitle}</h2>
+        </div>);
+    }
+}
+class Action extends React.Component{
+    handleOnPick(){
+        console.log("onPick called!!");
+    }
+    render(){
+        return( <div>
+            <button onClick={this.handleOnPick}>What should I do ?</button>
+        </div>);
+    }
+}
+
+// Nesting the Option in Opcdtions
+class Options extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this);
+        
+    }
+    handleRemoveAll(){
+        //alert('Remove all!');
+        console.log(this.props.options);
+    }
+
+
+    render(){
+        return(  
+        <div>
+            {/*
+            we can bind this as below - instead we can do it in the constructor
+            <button onClick={this.handleRemoveAll.bind(this)}>Remove All</button>
+            */}
+            <button onClick={this.handleRemoveAll}>Remove All</button>
+            { 
+                this.props.options.map((option)=>{
+                    return <p key={option}>{option}</p>
+                })           
+            }
+            <Option />
+        </div>);
+    }
+}
+
+class Option extends React.Component{
+    render(){
+        return(  <div>
+            Option component here!
+        </div>);
+    }
+}
+
+class AddOption extends React.Component{
+    handleAddOption(e){
+        e.preventDefault();
+        const option = e.target.elements.option.value;
+        if(option){
+            alert(option);
+        }
+    }
+    render(){ return (
+        <div>
+          <form onSubmit={this.handleAddOption}>
+            <input type='text' name='option' />
+            <button>Add Option </button>
+          </form>
+        </div>);
+    }
+}
+/** 
+// Demo to show bind 
+const obj = {
+    name: 'Vikram',
+    getName() {
+        return this.name;
+    }
+};
+console.log(obj.getName()); //this will work
+// now we will create a subtle tweak we will create a reference to the method getName()
+// we are running the same code but we are running in different context.
+const getname = obj.getName;   
+// the below code will break
+console.log(getname()); // we run the code in different context here and the this context is not transferred here
+//The above code is something like
+const func = function (){ // anonmyous function
+    console.log( this );
+}
+func(); // this will break
+// This can be solved with bind()
+const getname = obj.getName.bind(obj); //or
+getname = obj.getName.bind({name:'Andrew'});// we can force pass an inline object
+**/
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+
