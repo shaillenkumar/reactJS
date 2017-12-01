@@ -1,0 +1,23 @@
+const path = require('path');   //add path node path module
+console.log(__dirname);         //just to explore __dirname variable
+module.exports = {
+    entry: './src/app.js',
+    output: {
+        path: path.join(__dirname,'public'), 
+        //has to be absolute path depends on the OS. use __dirname property
+        //Refer the node.js path module and join api at https://nodejs.org/api/path
+        filename:'bundle.js'
+    },
+    module: {
+        rules:[{
+            loader: 'babel-loader',
+            test: /\.js/,
+            exclude: /node-modules/
+        }]
+    },
+    devtool: 'cheap-module-eval-source-map',
+    // the DEVTOOL fo source map helps identify the specific source js file which causes err or log instead of pointing to the bundle.js file    
+    devServer: {
+        contentBase: path.join(__dirname,'public')
+    }
+};

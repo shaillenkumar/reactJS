@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>React Training for Webpack</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="./bundle.js"></script>
+</body>
+
+</html>
+
+<!--
+
+// to add react- preset env  - 
+// To add webpack
+// To run live server - >  # yarn run serve 
+// to run build -> # yarn run build
+// yarn add validator@8.0.0
+// yarn add react@16.0.0 react-dom@16.0.0
+// yarn add babel-core@6.25.0 babel-loader@7.1.1   -> install babel core and babel preset
+// yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2 -> install babel preset
+// yarn add babel-core@6.25.0 babel-loader@7.1.1   -> install babel core
+// In the webpack.config.js create the modules rules for  the babel loader
+// .babelrc file is for the babel presets
+// yarn add webpack-dev-server@2.5.1
+// yarn run dev-server
+-->
