@@ -6,16 +6,42 @@ import Action from './Action'
 import Header from './Header'
 
 export default class IndecisionApp extends React.Component{
-    constructor(props){
-      super(props);
-      this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-      this.handleDeleteOption = this.handleDeleteOption.bind(this);
-      this.handlePick = this.handlePick.bind(this);
-      this.handleAddOption = this.handleAddOption.bind(this);
-      this.state = {
-        options: props.options
-      };
-    }
+    // make state as class variable
+    state = {
+        options: [] // just an empty array
+    };
+
+    //make this event handler function as class properties with an arrow function
+    handleDeleteOption =(optionToRemove) => {
+      this.setState((prevState) => ({
+        options: prevState.options.filter((option) => optionToRemove !== option)
+      }));
+    };
+
+    //make this event handler function as class properties with an arrow function
+    handleDeleteOptions = () => {
+      this.setState(()=>({options : []}));        // ({}) means its an object|  {} for body of arrow fn
+    };
+
+    //make this event handler function as class properties with an arrow function
+    handlePick = ()  => {
+      const randomNum = Math.floor(Math.random() * this.state.options.length);
+      const option = this.state.options[randomNum];
+      alert(option);
+    };
+
+    //make this event handler function as class properties with an arrow function
+    handleAddOption = (option) => {
+      console.log(option);
+      if(!option){
+        return "Enter Valid Value to Add Item "
+      }else if(this.state.options.indexOf(option)>-1) {
+        return "This Item already exists "
+      }
+      this.setState((prevState) => ({options : prevState.options.concat([option])}));
+    };
+
+    
     componentDidMount() {
       try {
         const json = localStorage.getItem('options');
@@ -37,31 +63,7 @@ export default class IndecisionApp extends React.Component{
     componentWillMount(){
       console.log('Component Will Mount');
     }
-    handleDeleteOption(optionToRemove) {
-      this.setState((prevState) => ({
-        options: prevState.options.filter((option) => optionToRemove !== option)
-      }));
-    }
-    handleDeleteOptions(){
-      this.setState(()=>({options : []}));        // ({}) means its an object|  {} for body of arrow fn
-    }
-    handlePick() {
-      const randomNum = Math.floor(Math.random() * this.state.options.length);
-      const option = this.state.options[randomNum];
-      alert(option);
-    }
-    handleAddOption(option){
-      console.log(option);
-      if(!option){
-        return "Enter Valid Value to Add Item "
-      }else if(this.state.options.indexOf(option)>-1) {
-        return "This Item already exists "
-      }
-      this.setState((prevState) => ({options : prevState.options.concat([option])}));
-     /* this.setState((prevState) =>{
-        return {options : prevState.options.concat([option])};
-      });*/
-    }
+
     render(){
        const title='Indecision App';  //props
        const subtitle = 'Put your life in the hands of computer';
