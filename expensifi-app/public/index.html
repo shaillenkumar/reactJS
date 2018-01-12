@@ -22,4 +22,45 @@
      historyApiFallback: true add then all 404s will fallback to /index.html
 
   4. we can add switch to match routes
--->
+
+  5. <Link> to traverse from page to page - client side routing. Instead of <a href>
+  6. <NavLink> is similar but has styles associated.
+
+  In the app2.js we will seperate out Router Js and component JS
+
+
+  7. Create the playground folder. In the webpack.config file . change the 
+   entry: './src/playground/redux-101.js',
+
+  8. yarn add redux@3.7.2
+
+  9. The destructuring.js for object and array change the webpackconfig.js entry point
+  10. yarn add uuid
+  11. use array spread operator ...names
+  12. object spread operator - is not supported by ES6 yet so we add to babel
+    https://babeljs.io/docs/plugins/transform-object-rest-spread/
+    install npm install --save-dev babel-plugin-transform-object-rest-spread
+  add plugin 
+  "plugins": ["transform-object-rest-spread"]
+
+
+-------- React Redux ------------------
+https://github.com/reactjs/react-redux    go to this website 
+Redux API has Provider and connect
+
+
+npm install --save react-redux
+
+Then we can name import as
+import {Provider}  from 'react-redux';
+import {}
+
+
+
+--> 
+
+
+
+
+
+
